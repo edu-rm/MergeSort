@@ -9,7 +9,7 @@ void merge(int arr[], int l, int m, int r)
 
     int i, j, k; 
     
-    // Tamanho do vetor L e R
+    // Tamanho do vetor L e R (length)
     int n1 = m - l + 1; 
     int n2 =  r - m; 
   
@@ -22,10 +22,12 @@ void merge(int arr[], int l, int m, int r)
     for (j = 0; j < n2; j++) 
         R[j] = arr[m + 1+ j]; 
   
-    /* Juntando os arrays temporários em arr[l..r]*/
+    /* Juntando os arrays temporários em arr[l..r] */
     i = 0; // índice inicial do primeiro sub array. 
     j = 0; // indíce inicial do secundo sub array 
     k = l; // Indice do array final 
+
+
     while (i < n1 && j < n2) 
     { 
         if (L[i] <= R[j]) 
@@ -70,10 +72,11 @@ void mergeSort(int arr[], int l, int r)
         printf("\n%i\n", m);
 
 
-        // Sort first and second halves 
+        // Dividindo novamente até a condição l < r não ser atendida 
         mergeSort(arr, l, m); 
         mergeSort(arr, m+1, r); 
 
+        // Juntando todos em um array
         merge(arr, l, m, r); 
     } 
 } 
