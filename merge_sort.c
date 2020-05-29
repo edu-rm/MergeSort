@@ -27,6 +27,15 @@ void merge(int arr[], int l, int m, int r)
     j = 0; // indíce inicial do secundo sub array 
     k = l; // Indice do array final 
 
+    // Caso dois sub arrays de 3 elementos:
+    // 3 1 5 - 4 2 6 
+
+    // i = 1, k = 1 
+    // i = 2, k = 2
+    // j = 1, k = 3
+    // i = 3, k = 4
+    // j = 2, k = 5
+    // j = 3, k = 6
 
     while (i < n1 && j < n2) 
     { 
