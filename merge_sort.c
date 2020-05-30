@@ -43,6 +43,7 @@ void merge(int arr[], int l, int m, int r)
         { 
             arr[k] = L[i]; 
             i++; 
+
         } 
         else
         { 
@@ -77,13 +78,15 @@ void mergeSort(int arr[], int l, int r)
     { 
         // Acha a metade e arredonda pra baixo
         int m = l+(r-l)/2; 
+        float m1 = m+1;
 
-        printf("\n%i\n", m);
-
-
+        // *contador++;
         // Dividindo novamente até a condição l < r não ser atendida 
+        printf("Vou entrar no primeiro mergesort:\nl = %i\nm  = %i\n\n\n", l, m); 
         mergeSort(arr, l, m); 
+        printf("Vou entrar no segundo mergesort:\nm+1 = %f\nr = %i\n\n\n", m1, r); 
         mergeSort(arr, m+1, r); 
+        printf("Vou entrar no merge:\nl = %i, \nm = %i,\nr = %i\n\n\n ", l, m , r); 
 
         // Juntando todos em um array
         merge(arr, l, m, r); 
@@ -100,10 +103,13 @@ void printArray(int A[], int size)
 
 int main() 
 { 
-    int arr[] = {12, 11, 13, 5, 6, 7}; 
+    int arr[] = {12, 11, 13, 5}; 
     int arr_size = sizeof(arr)/sizeof(arr[0]); 
 
-    printf("Given array is \n"); 
+    // int* contador = malloc(sizeof(int));
+    // *contador = 0 ;
+
+    printf("Vou entrar na pilha 1 \n"); 
     printArray(arr, arr_size); 
   
     mergeSort(arr, 0, arr_size - 1); 
