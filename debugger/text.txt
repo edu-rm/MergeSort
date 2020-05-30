@@ -1,0 +1,343 @@
+Given array is 
+12 4 7 6 
+
+
+.........................................
+
+
+Nova Pilha
+Entranda Pilha: arr{ 12, 4, 7, 6 } left = 0, right = 3
+middle: left(0) + (right(3) - left(0)) / 2 = 1
+arr : { 12, 4, 7, 6 }
+Dados:
+left: 0
+right: 3
+middle: 1
+Entrando Primeiro MergeSort: mergeSort(arr, left, middle)
+
+
+.........................................
+
+
+Nova Pilha
+Entranda Pilha: arr{ 12, 4, 7, 6 } left = 0, right = 1
+middle: left(0) + (right(1) - left(0)) / 2 = 0
+arr : { 12, 4, 7, 6 }
+Dados:
+left: 0
+right: 1
+middle: 0
+Entrando Primeiro MergeSort: mergeSort(arr, left, middle)
+
+
+.........................................
+
+
+Nova Pilha
+NAO ENTROU EM NENHUM MERGE, POIS 0 < 0
+
+
+.........................................
+
+
+Pilha Anterior!
+Entranda Pilha: arr{ 12, 4, 7, 6 } left = 0, right = 1
+middle: left(0) + (right(1) - left(0)) / 2 = 0
+Dados:
+left: 0
+right: 1
+middle: 0
+Entrando Segundo MergeSort: (arr, middle + 1, right)
+
+
+.........................................
+
+
+Nova Pilha
+NAO ENTROU EM NENHUM MERGE, POIS 1 < 1
+
+
+.........................................
+
+
+Pilha Anterior!
+Entranda Pilha: arr{ 12, 4, 7, 6 } left = 0, right = 1
+middle: left(0) + (right(1) - left(0)) / 2 = 0
+Dados:
+left: 0
+right: 1
+middle: 0
+Entrando No Merge: merge(arr, left, middle, right)
+
+
+.........................................
+
+
+Nova Pilha - Funcao Merge
+Dados:
+arr : { 12, 4, 7, 6 }
+left: 0
+right: 1
+middle: 0
+
+Distribuindo os valores do vetor em 2 outros vetores
+nLeft = middle(0) - left(0) + 1 = 1
+nLeft = right(1) - left(0) = 1
+L[nLeft = 1], R[nRight = 1]
+L[0] = arr[0](12)
+R[0] = arr[1](4)
+
+ORDENANDO
+k: left(0) -> indice arr
+i: 0 -> indice L
+j: 0 -> indice R
+
+while(i(0) < nLeft(1) && j(0) < nRight(1))
+        if(L[0](12) <= R [0](4)) {
+                arr[0] = L[0](12);
+                i++
+        } else {
+                arr[0] = R[0](4);
+
+                j++
+        }
+
+executou esse arr[0] = R[0](4);
+j++
+k++
+
+Fim do while !
+
+k: 1
+i: 0
+j: 1
+
+while(i(0) < nLeft(1))
+        arr[1] = L[0](12)
+Fim do while !
+a[0](4), a[1](12), a[2](7), a[3](6)
+k: 2
+i: 1
+j: 1
+
+
+.........................................
+
+
+Pilha Anterior !
+Entranda Pilha: arr{ 4, 12, 7, 6 } left = 0, right = 3
+middle: left(0) + (right(3) - left(0)) / 2 = 1
+Dados:
+left: 0
+right: 3
+middle: 1
+Entrando Segundo MergeSort: (arr, middle + 1, right)
+
+
+.........................................
+
+
+Nova Pilha
+Entranda Pilha: arr{ 4, 12, 7, 6 } left = 2, right = 3
+middle: left(2) + (right(3) - left(2)) / 2 = 2
+arr : { 4, 12, 7, 6 }
+Dados:
+left: 2
+right: 3
+middle: 2
+Entrando Primeiro MergeSort: mergeSort(arr, left, middle)
+
+
+.........................................
+
+
+Nova Pilha
+NAO ENTROU EM NENHUM MERGE, POIS 2 < 2
+
+
+.........................................
+
+
+Pilha Anterior!
+Entranda Pilha: arr{ 4, 12, 7, 6 } left = 2, right = 3
+middle: left(2) + (right(3) - left(2)) / 2 = 2
+Dados:
+left: 2
+right: 3
+middle: 2
+Entrando Segundo MergeSort: (arr, middle + 1, right)
+
+
+.........................................
+
+
+Nova Pilha
+NAO ENTROU EM NENHUM MERGE, POIS 3 < 3
+
+
+.........................................
+
+
+Pilha Anterior!
+Entranda Pilha: arr{ 4, 12, 7, 6 } left = 2, right = 3
+middle: left(2) + (right(3) - left(2)) / 2 = 2
+Dados:
+left: 2
+right: 3
+middle: 2
+Entrando No Merge: merge(arr, left, middle, right)
+
+
+.........................................
+
+
+Nova Pilha - Funcao Merge
+Dados:
+arr : { 4, 12, 7, 6 }
+left: 2
+right: 3
+middle: 2
+
+Distribuindo os valores do vetor em 2 outros vetores
+nLeft = middle(2) - left(2) + 1 = 1
+nLeft = right(3) - left(2) = 1
+L[nLeft = 1], R[nRight = 1]
+L[0] = arr[2](7)
+R[0] = arr[3](6)
+
+ORDENANDO
+k: left(2) -> indice arr
+i: 0 -> indice L
+j: 0 -> indice R
+
+while(i(0) < nLeft(1) && j(0) < nRight(1))
+        if(L[0](7) <= R [0](6)) {
+                arr[2] = L[0](7);
+                i++
+        } else {
+                arr[2] = R[0](6);
+
+                j++
+        }
+
+executou esse arr[2] = R[0](6);
+j++
+k++
+
+Fim do while !
+
+k: 3
+i: 0
+j: 1
+
+while(i(0) < nLeft(1))
+        arr[3] = L[0](7)
+Fim do while !
+a[0](4), a[1](12), a[2](6), a[3](7)
+k: 4
+i: 1
+j: 1
+
+
+.........................................
+
+
+Pilha Anterior !
+Entranda Pilha: arr{ 4, 12, 6, 7 } left = 0, right = 3
+middle: left(0) + (right(3) - left(0)) / 2 = 1
+Dados:
+left: 0
+right: 3
+middle: 1
+Entrando No Merge: merge(arr, left, middle, right)
+
+
+.........................................
+
+
+Nova Pilha - Funcao Merge
+Dados:
+arr : { 4, 12, 6, 7 }
+left: 0
+right: 3
+middle: 1
+
+Distribuindo os valores do vetor em 2 outros vetores
+nLeft = middle(1) - left(0) + 1 = 2
+nLeft = right(3) - left(1) = 2
+L[nLeft = 2], R[nRight = 2]
+L[0] = arr[0](4)
+L[1] = arr[1](12)
+R[0] = arr[2](6)
+R[1] = arr[3](7)
+
+ORDENANDO
+k: left(0) -> indice arr
+i: 0 -> indice L
+j: 0 -> indice R
+
+while(i(0) < nLeft(2) && j(0) < nRight(2))
+        if(L[0](4) <= R [0](6)) {
+                arr[0] = L[0](4);
+                i++
+        } else {
+                arr[0] = R[0](6);
+
+                j++
+        }
+
+executou esse arr[0] = L[0](4);
+i++
+k++
+
+while(i(1) < nLeft(2) && j(0) < nRight(2))
+        if(L[1](12) <= R [0](6)) { 
+                arr[1] = L[1](12);
+                i++
+        } else {
+                arr[1] = R[0](6);
+
+                j++
+        }
+
+executou esse arr[1] = R[0](6);
+j++
+k++
+
+while(i(1) < nLeft(2) && j(1) < nRight(2))
+        if(L[1](12) <= R [1](7)) {
+                arr[2] = L[1](12);
+                i++
+        } else {
+                arr[2] = R[1](7);
+
+                j++
+        }
+
+executou esse arr[2] = R[1](7);
+j++
+k++
+
+Fim do while !
+
+k: 3
+i: 1
+j: 2
+
+while(i(1) < nLeft(2))
+        arr[3] = L[1](12)
+Fim do while !
+a[0](4), a[1](6), a[2](7), a[3](12)
+k: 4
+i: 2
+j: 2
+
+
+.........................................
+
+
+Pilha Anterior !
+
+Sorted array is
+4 6 7 12
+PS C:\Users\vineb\OneDrive\Área de Trabalho>
