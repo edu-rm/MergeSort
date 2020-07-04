@@ -28,8 +28,8 @@ int main() {
 	// The size of each partition 
 	int run_size = 1000; 
 
-	char input_file[] = "input.txt"; 
-	char output_file[] = "output.txt"; 
+	char input_file[] = "file/input.txt"; 
+	char output_file[] = "file/output.txt"; 
 
 	FILE* in = openFile(input_file, "w"); 
 
@@ -83,13 +83,13 @@ void createInitialRuns(
 	FILE* in = openFile(input_file, "r"); 
 
 	// output scratch files 
-	FILE* out[num_ways];
-	char path[] = "num_ways/"; //pasta onde será armazena as runs 
+	FILE* out[num_ways]; 
 	char fileName[2]; 
 	for (int i = 0; i < num_ways; i++) { 
 		// convert i to string 
 		snprintf(fileName, sizeof(fileName), 
 				"%d", i);
+
 		//gerando path
 		char path[] = "num_ways/"; //pasta onde será armazena as runs 
 		strcat(path, fileName); 
@@ -211,11 +211,11 @@ void mergeFiles(char* output_file, int k) {
 
 		// convert i to string 
 		snprintf(fileName, sizeof(fileName), 
-				"%d", i);
-		
-		char path[] = "num_ways/";
-		strcat(path, fileName);
-		strcat(path, ".txt");
+				"%d", i); 
+		//gerando path
+		char path[] = "num_ways/"; //pasta onde será armazena as runs 
+		strcat(path, fileName); 
+		strcat(path, ".txt"); //extensão do arquivo
 		// Open output files in read mode. 
 		in[i] = openFile(path, "r"); 
 	} 
