@@ -98,10 +98,10 @@ void MinHeap::MinHeapify(int i) {
 // Driver program to test above 
 int main() { 
 	// No. of Partitions of input file. 
-	int num_ways = 5; 
+	int num_ways = 3; 
 
 	// The size of each partition 
-	int run_size = 2; 
+	int run_size = 3; 
 
 	char input_file[] = "input.txt"; 
 	char output_file[] = "output.txt"; 
@@ -111,11 +111,16 @@ int main() {
 	srand(time(NULL)); 
 
 	// generate input 
-	for (int i = 0; i < num_ways * run_size; i++) 
-		fprintf(in, "%d ", rand()); 
+	printf("Arquivo Gerado simulando Memoria external(Disco Rigido)\n");
+	for (int i = 0; i < num_ways * run_size; i++) {
+		int x = rand() %10;
+		fprintf(in, "%d ", x);
+		printf("%d\n", x);
+	} 
 
 	fclose(in); 
 
+	printf("Entrando na funcao External Sort\n");
 	externalSort(input_file, output_file, num_ways, 
 				run_size); 
 
@@ -143,7 +148,9 @@ void externalSort(
 					run_size, num_ways); 
 
 	// Merge the runs using 
-	// the K-way merging 
+	// the K-way merging
+
+	printf("\n\nEntrando no MergeFiles!\n\n"); 
 	mergeFiles(output_file, num_ways); 
 } 
 
@@ -154,10 +161,13 @@ void externalSort(
 void createInitialRuns( 
 	char* input_file, int run_size, 
 	int num_ways) { 
+	printf("Entrando na funcao createInitialRuns\n");
 	// For big input file 
+	printf("Lendo Arquivo criado (Disco Rigido)\n");
 	FILE* in = openFile(input_file, "r"); 
 
 	// output scratch files 
+	printf("Criando Vetor de tamanho %d, representa runs\n", num_ways);
 	FILE* out[num_ways]; 
 	char fileName[2]; 
 	for (int i = 0; i < num_ways; i++) { 
@@ -166,6 +176,7 @@ void createInitialRuns(
 				"%d", i); 
 
 		// Open output files in write mode. 
+		printf("Nomeando as runs (Buffers na Memoria) [%s]\n", fileName);
 		out[i] = openFile(fileName, "w"); 
 	} 
 
@@ -178,17 +189,27 @@ void createInitialRuns(
 	int next_output_file = 0; 
 
 	int i; 
-	while (more_input) { 
+	printf("\nEntrando no while ate more_input = false\n");
+	while (more_input) {
+		more_input == true ? printf("\n\nmore_input_atual = true\n") : printf("\n\nmore_input_atual = false\n");
+
 		// write run_size elements 
 		// into arr from input file 
 		for (i = 0; i < run_size; i++) { 
+			printf("\ni = %d\n", i);
+			printf("run_size = %d\n", run_size);
+			printf("Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array\n", i, arr[i]);
 			if (fscanf(in, "%d ", &arr[i]) != 1) { 
+				printf("Entrou na condicao i = %d, arr[i] = %d, more_input = false, ou seja foi um arquivo ja lido do ultimo conjunto\n", i, arr[i]);
 				more_input = false; 
 				break; 
-			} 
+			}
+			printf("arr = { %d, %d, %d }\n", arr[0], arr[1], arr[2]);
 		} 
 
-		// sort array using merge sort 
+		// sort array using merge sort
+		printf("\nEntrando no MergeSort\n");
+		printf("Parametros : arr, left = %d, right = %d\n", 0, i - 1);
 		mergeSort(arr, 0, i - 1); 
 
 		// write the records to the 
@@ -196,11 +217,20 @@ void createInitialRuns(
 		// can't assume that the loop 
 		// runs to run_size 
 		// since the last run's length 
-		// may be less than run_size 
-		for (int j = 0; j < i; j++) 
+		// may be less than run_size
+		printf("\n\nSaiu do MergeSort\n");
+		printf("Vetor atual\n");
+		printf("next_output_file: %d\n", next_output_file);
+
+		printf("Escrevendo nas runs (Buffers da memoria)\n");
+		for (int j = 0; j < i; j++) {
+			printf("j: %d\n", j);
+			printf("i: %d\n", i);	
+			printf("Elemento passado: %d\n", arr[j]);
 			fprintf(out[next_output_file], 
 					"%d ", arr[j]); 
 
+		} 
 		next_output_file++; 
 	} 
 
@@ -213,36 +243,73 @@ void createInitialRuns(
 
 /* l is for left index and r is right index of the 
 sub-array of arr to be sorted */
-void mergeSort(int arr[], int l, int r) { 
+void mergeSort(int arr[], int l, int r) {
+	printf("\n\n.........................................\n\n");
+    printf("\nNova Pilha\n");
+	printf("arr = { %d, %d, %d }\n", arr[0], arr[1], arr[2]);
+
+	printf("%d < %d ?\n", l, r);
 	if (l < r) { 
 		// Same as (l+r)/2, but avoids overflow for 
 		// large l and h 
 		int m = l + (r - l) / 2; 
+		// Sort first and second halves
+		printf("Calculando o meio left = %d, right = %d, meio = %d + %d / 2 = %d\n", l, r, l, r, m);
+		printf("Entrando Primeiro Merge\n");
+		printf("left = %d\n", l);
+		printf("right = %d\n", r);
+		printf("middle = %d\n", m);
+		printf("Parametros: arr, left, middle\n");
+		mergeSort(arr, l, m);
+		 
 
-		// Sort first and second halves 
-		mergeSort(arr, l, m); 
-		mergeSort(arr, m + 1, r); 
+		printf("Entrando Segundo Merge\n");
+		printf("left = %d\n", l);
+		printf("right = %d\n", r);
+		printf("middle = %d\n", m);
+		printf("Parametros: arr, middle + 1, right\n");
+		mergeSort(arr, m + 1, r);
 
+		printf("Entrando no Merge\n");
+		printf("left = %d\n", l);
+		printf("right = %d\n", r);
+		printf("middle = %d\n", m);
 		merge(arr, l, m, r); 
-	} 
+	} else {
+		printf("NAO ENTROU EM NENHUM MERGE, POIS %i >= %i\n", l, r);
+        printf("\n\n.........................................\n\n");
+        printf("\nPilha Anterior!\n");
+	}
 }
 
 // Merges two subarrays of arr[]. 
 // First subarray is arr[l..m] 
 // Second subarray is arr[m+1..r] 
 void merge(int arr[], int l, int m, int r) { 
+	printf("\n\n.........................................\n\n");
+    printf("\nNova Pilha - Funcao Merge\n");
+	printf("left: %i\n", l);
+    printf("right: %i\n", r);
+    printf("middle: %i\n", m);
 	int i, j, k; 
 	int n1 = m - l + 1; 
-	int n2 = r - m; 
+	int n2 = r - m;
+	printf("N1: %d\n", n1);
+	printf("N2: %d\n", n2);
+	printf("Tamanho de do vetor L = %d, R = %d\n", n1, n2);
 
 	/* create temp arrays */
 	int L[n1], R[n2]; 
 
 	/* Copy data to temp arrays L[] and R[] */
-	for (i = 0; i < n1; i++) 
+	for (i = 0; i < n1; i++) {
 		L[i] = arr[l + i]; 
-	for (j = 0; j < n2; j++) 
+		printf("L[%d] = %d\n", i, L[i]);
+	}
+	for (j = 0; j < n2; j++) {
 		R[j] = arr[m + 1 + j]; 
+		printf("R[%d] = %d\n", j, R[j]);
+	}
 
 	/* Merge the temp arrays back into arr[l..r]*/
 	// Initial index of first subarray 
@@ -252,23 +319,54 @@ void merge(int arr[], int l, int m, int r) {
 	j = 0; 
 
 	// Initial index of merged subarray 
-	k = l; 
+	k = l;
+	printf("i: %d (incide do vetor left)\n", i);
+	printf("j: %d (indice do vetor right)\n", j);
+	printf("k: %d (indice do vetor final)\n", k);
+	printf("Entrando no while ate i >= n1 ou j >= n2\n");
 	while (i < n1 && j < n2) { 
-		if (L[i] <= R[j]) 
+		printf("i: %d\n", i);
+		printf("j: %d\n", j);
+		printf("k: %d\n", k);
+		printf("%d < %d  && %d < %d ?\n", i, n1, j, n2);
+
+		printf("Se L[i] <= R[j]; %d <= %d ? \n", L[i], R[j]);
+		if (L[i] <= R[j]) {
+			printf("Entao arr[k] = L[i]; arr[%d] = %d\n", k, L[i]);
 			arr[k++] = L[i++]; 
-		else
+		} else {
+			printf("Entao arr[k] = R[j]; arr[%d] = %d\n", k, R[j]);
 			arr[k++] = R[j++]; 
+		}
 	} 
 
 	/* Copy the remaining elements of L[], 
 		if there are any */
-	while (i < n1) 
+	printf("Passando Valores restantes se houver algum\n");
+	if(i < n1) {
+		printf("i < n1; %d < %d\n", i, n1);
+	} else {
+		printf("j < n2; %d < %d\n", j, n2);
+	}
+
+	while (i < n1) {
+		printf("i: %d\n", i);
+		printf("k: %d\n", k);
+		printf("arr[k] = L[i]; arr[%d] = %d\n", k, L[i]);
 		arr[k++] = L[i++]; 
+		
+	}
 
 	/* Copy the remaining elements of R[], 
-		if there are any */
-	while (j < n2) 
+		if there are any */	
+	while (j < n2) {
+		printf("j: %d\n", j);
+		printf("k: %d\n", k);
+		printf("arr[k] = R[j]; arr[%d] = %d\n", k, R[j]);
 		arr[k++] = R[j++]; 
+	}
+	printf("\narr = { %d, %d, %d }\n", arr[0], arr[1], arr[2]);
+	printf("Fim do Merge\n\n");
 } 
 
 
