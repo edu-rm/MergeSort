@@ -54,12 +54,17 @@ public:
 	int right(int i) { return (2 * i + 2); } 
 
 	// to get the root 
-	MinHeapNode getMin() { return harr[0]; } 
+	MinHeapNode getMin() {
+		printf("retorna a primeira posicao do harr\n"); 
+		return harr[0]; 
+	} 
 
 	// to replace root with new node 
 	// x and heapify() new root 
-	void replaceMin(MinHeapNode x) { 
-		harr[0] = x; 
+	void replaceMin(MinHeapNode x) {
+		printf("\nPassa o root para a posicao 0 de harr\n");
+		harr[0] = x;
+		printf("Entra em MinHeapify passando 0 como parametro\n"); 
 		MinHeapify(0); 
 	} 
 }; 
@@ -67,13 +72,21 @@ public:
 // Constructor: Builds a heap from 
 // a given array a[] of given size 
 MinHeap::MinHeap(MinHeapNode a[], int size) { 
-	heap_size = size; 
+	heap_size = size;
+	printf("\nConstrutor MinHeap\n");
 	harr = a; // store address of array 
-	int i = (heap_size - 1) / 2; 
-	while (i >= 0) { 
+	int i = (heap_size - 1) / 2;
+	printf("i = (num_ways - 1) / 2\n");
+	printf("\nEnquanto i >= 0\n");
+	while (i >= 0) {
+		printf("\ni: %d\n", i);
+		printf("Executa a funcao MinHeapify passando como parametro i\n"); 
 		MinHeapify(i); 
-		i--; 
+		i--;
+		printf("\n\nFim do Enquanto do Construtor\n\n");
 	} 
+
+	printf("\nFim do Contrutor\n");
 } 
 
 // A recursive method to heapify 
@@ -81,16 +94,33 @@ MinHeap::MinHeap(MinHeapNode a[], int size) {
 // at given index. This method 
 // assumes that the 
 // subtrees are already heapified 
-void MinHeap::MinHeapify(int i) { 
+void MinHeap::MinHeapify(int i) {
+	printf("\n\nNova Pilha - Funcao MinHeapify\n\n");
+	printf("Chama Funcao Left passando i como parametro que retorna 2 * i + 1 \n");
 	int l = left(i); 
+	printf("left = %d\n", l);
+	printf("Chama Funcao Right passando i como parametro retornando 2 * i + 2\n");
 	int r = right(i); 
-	int smallest = i; 
-	if (l < heap_size && harr[l].element < harr[i].element) 
+	printf("right = %d\n", r);
+	int smallest = i;
+	printf("Passa para variavel smallest o valor de i; smallest = %d", i);
+	printf("\nif l (%d) < (%d) num_ways && harr[l].element (%d) < (%d) harr[i].element\n", l, heap_size, harr[l].element, harr[i].element); 
+	if (l < heap_size && harr[l].element < harr[i].element) {
 		smallest = l; 
-	if (r < heap_size && harr[r].element < harr[smallest].element) 
+		printf("Entao smallest = l; smallest = %d\n", l);
+		
+
+	}
+	printf("\nif r (%d) <  (%d) num_ways && harr[r].element (%d) < (%d) harr[smallest].element\n", r, heap_size, harr[r].element, harr[smallest].element);
+	if (r < heap_size && harr[r].element < harr[smallest].element) {
 		smallest = r; 
+		printf("Entao smallest = r; smallest = %d\n", r);
+	}
+	printf("\nif smallest (%d) != (%d) i\n", smallest, i);
 	if (smallest != i) { 
-		swap(&harr[i], &harr[smallest]); 
+		printf("Entao chama funcao swap passando como referencia o harr[i] = %d e harr[smallest] = %d\n", harr[i].element, harr[smallest].element);
+		swap(&harr[i], &harr[smallest]);
+		printf("Entrando em MinHeapify passando smallest = %d como parametro\n", smallest);
 		MinHeapify(smallest); 
 	} 
 } 
@@ -113,7 +143,7 @@ int main() {
 	// generate input 
 	printf("Arquivo Gerado simulando Memoria external(Disco Rigido)\n");
 	for (int i = 0; i < num_ways * run_size; i++) {
-		int x = rand() %10;
+		int x = rand() %30;
 		fprintf(in, "%d ", x);
 		printf("%d\n", x);
 	} 
@@ -124,6 +154,8 @@ int main() {
 	externalSort(input_file, output_file, num_ways, 
 				run_size); 
 
+
+	system("pause");
 	return 0; 
 } 
 
@@ -198,7 +230,7 @@ void createInitialRuns(
 		for (i = 0; i < run_size; i++) { 
 			printf("\ni = %d\n", i);
 			printf("run_size = %d\n", run_size);
-			printf("Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array\n", i, arr[i]);
+			printf("Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array\n");
 			if (fscanf(in, "%d ", &arr[i]) != 1) { 
 				printf("Entrou na condicao i = %d, arr[i] = %d, more_input = false, ou seja foi um arquivo ja lido do ultimo conjunto\n", i, arr[i]);
 				more_input = false; 
@@ -372,39 +404,85 @@ void merge(int arr[], int l, int m, int r) {
 
 // Merges k sorted files. Names of files are assumed 
 // to be 1, 2, 3, ... k 
-void mergeFiles(char* output_file, int k) { 
-	FILE* in[k]; 
+void mergeFiles(char* output_file, int k) {
+	//k == nuwways
+	printf("Abre as runs criadas no mode de leitura\n");
+	printf("FILE in[%d]\n", k);
+	FILE* in[k];
+	FILE* aux;
 	for (int i = 0; i < k; i++) { 
 		char fileName[2]; 
 
 		// convert i to string 
 		snprintf(fileName, sizeof(fileName), 
 				"%d", i); 
+		printf("Abrindo as runs (Buffers na Memoria) [%s]\n", fileName);
 
 		// Open output files in read mode. 
-		in[i] = openFile(fileName, "r"); 
-	} 
+		in[i] = openFile(fileName, "r");
+
+	}
+
+	printf("\n\n");
+	
+	int* arr = (int*) malloc(3 * sizeof(int));
+	for (int i = 0; i < k; i++) { 
+		char fileName[2]; 
+		// convert i to string 
+		snprintf(fileName, sizeof(fileName), 
+				"%d", i); 
+		// Open output files in read mode. 
+		aux = openFile(fileName, "r");
+		for (int j = 0; j < 3; j++) {
+			if(fscanf(aux, "%d ", &arr[j]) != 1) {
+				break;
+			} 
+		}
+		
+		printf("run %d = { ", i);
+		for(int m = 0; m < 3; m++) {
+			printf("%d ", arr[m]);
+		}
+		printf("}\n");
+			
+	}  
+
+	printf("\n\n");
 
 	// FINAL OUTPUT FILE 
-	FILE* out = openFile(output_file, "w"); 
+	printf("\nCria o arquivo final no modo de escrita out\n");
+	FILE* out = openFile(output_file, "w");
+
 
 	// Create a min heap with k heap 
 	// nodes. Every heap node 
 	// has first element of scratch 
 	// output file 
+	printf("\nCria um vetor da struct MinHeapNode com o mesmo tamanho de num_ways\n");
+	printf("MinHeapNode harr[%d] possui um elemento e um indice\n", k);
 	MinHeapNode* harr = new MinHeapNode[k]; 
 	int i; 
-	for (i = 0; i < k; i++) { 
+	printf("\n\n\nEntrando no for de i ate num_ways\n");
+	for (i = 0; i < k; i++) {
+		printf("\ni = %d\n", i);
 		// break if no output file is empty and 
 		// index i will be no. of input files 
-		if (fscanf(in[i], "%d ", &harr[i].element) != 1) 
+		printf("Lendos os valores de in[%d] e passando para o elemento de  harr[%d]\n", i, i);
+		if (fscanf(in[i], "%d ", &harr[i].element) != 1) {
+			printf("Entrou na condicao, ou seja, não existem mais arquivos para serem lidos\n");
 			break; 
+		}
+		
+		printf("harr[%d] = %d\n", i, harr[i].element);
 
 		// Index of scratch output file 
+		printf("\nConcatenando o mesmo indice i = %d com o indice de harr[i].i = %d\n", i, i);
 		harr[i].i = i; 
 	} 
 	// Create the heap 
-	MinHeap hp(harr, i); 
+	printf("\n\n\n\nnum_ways = %d\n", i);
+	printf("Criando a classe MinHeap passando para o construtor harr e num_ways\n");
+	MinHeap hp(harr, i);
 
 	int count = 0; 
 
@@ -413,31 +491,56 @@ void mergeFiles(char* output_file, int k) {
 	// heap and replace it with 
 	// next element. 
 	// run till all filled input 
-	// files reach EOF 
+	// files reach EOF
+	printf("\n\nVoltou a funcao MergeFiles\n");
+	printf("count = %d\n", count);
+	printf("num_ways = %d\n", i);
+	printf("Enquanto %d != %d\n", count, i);
+	
 	while (count != i) { 
+		printf("\n\ncount: %d\n", count);
 		// Get the minimum element 
-		// and store it in output file 
-		MinHeapNode root = hp.getMin(); 
+		// and store it in output file
+		printf("Cria uma estrutura MinHeapNode root e passa para ela o menor valor da classe MinHeap com a funcao getMin()\n"); 
+		MinHeapNode root = hp.getMin();
+		printf("root = %d\n", root.element); 
+
+		printf("\nEscreve no arquivo final (out)  o valor de root\n");
 		fprintf(out, "%d ", root.element); 
+		printf("root = %d\n", root.element);
+		printf("root.i = %d\n\n", root.i);
 
 		// Find the next element that 
 		// will replace current 
 		// root of heap. The next element 
 		// belongs to same 
 		// input file as the current min element. 
+		
+		printf("Enquanto houver, pega o proximo elemento no run e passa para root.element; do arquivo in[%d], onde %d = root.i\n", root.i, root.i);
 		if (fscanf(in[root.i], "%d ", 
 				&root.element) 
-			!= 1) { 
+			!= 1) {
+			
+			printf("Entro na condicao, nao existe mais elemento para ser lido, e passa para root.element um valor grande\n");
 			root.element = INT_MAX; 
 			count++; 
-		} 
+			printf("count++ = %d\n", count);
+		}
+		
+		printf("root.element = %d\n\n", root.element);
+		
 
 		// Replace root with next 
-		// element of input file 
-		hp.replaceMin(root); 
+		// element of input file
+		printf("Aplica a funcao de replaceMin na classe MinHeap passando root como parametro %d\n\n", root.element);
+		hp.replaceMin(root);
+
+		printf("\n\nVoltou ao MergeFiles\n");
+
+		printf("Fim do Enquanto Merge Files\n");
 	} 
 
-	// close input and output files 
+	// close input and output file
 	for (int i = 0; i < k; i++) 
 		fclose(in[i]); 
 
@@ -445,10 +548,13 @@ void mergeFiles(char* output_file, int k) {
 } 
 
 // A utility function to swap two elements 
-void swap(MinHeapNode* x, MinHeapNode* y) { 
+void swap(MinHeapNode* x, MinHeapNode* y) {
+	printf("\nfuncao swap\n");
+	printf("Inverte os valores de harr[i] e harr[smallest]\n");
 	MinHeapNode temp = *x; 
 	*x = *y; 
-	*y = temp; 
+	*y = temp;
+	printf("harr[i] = %d, harr[smallest] = %d\n", x->element, y->element);
 } 
 
 

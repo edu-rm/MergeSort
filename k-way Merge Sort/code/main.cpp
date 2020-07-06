@@ -204,9 +204,9 @@ void merge(int arr[], int l, int m, int r) {
 
 // Merges k sorted files. Names of files are assumed 
 // to be 1, 2, 3, ... k 
-void mergeFiles(char* output_file, int k) { 
-	FILE* in[k]; 
-	for (int i = 0; i < k; i++) { 
+void mergeFiles(char* output_file, int num_ways) { 
+	FILE* run[num_ways]; 
+	for (int i = 0; i < num_ways; i++) { 
 		char fileName[2]; 
 
 		// convert i to string 
@@ -217,7 +217,7 @@ void mergeFiles(char* output_file, int k) {
 		strcat(path, fileName); 
 		strcat(path, ".txt"); //extensão do arquivo
 		// Open output files in read mode. 
-		in[i] = openFile(path, "r"); 
+		run[i] = openFile(path, "r"); 
 	} 
 
 	// FINAL OUTPUT FILE 
@@ -227,12 +227,12 @@ void mergeFiles(char* output_file, int k) {
 	// nodes. Every heap node 
 	// has first element of scratch 
 	// output file 
-	MinHeapNode* harr = new MinHeapNode[k]; 
+	MinHeapNode* harr = new MinHeapNode[num_ways]; 
 	int i; 
-	for (i = 0; i < k; i++) { 
+	for (i = 0; i < num_ways; i++) { 
 		// break if no output file is empty and 
 		// index i will be no. of input files 
-		if (fscanf(in[i], "%d ", &harr[i].element) != 1) 
+		if (fscanf(run[i], "%d ", &harr[i].element) != 1) 
 			break; 
 
 		// Index of scratch output file 
@@ -241,14 +241,13 @@ void mergeFiles(char* output_file, int k) {
 	// Create the heap 
 	MinHeap hp(harr, i); 
 
-	int count = 0; 
-
 	// Now one by one get the 
 	// minimum element from min 
 	// heap and replace it with 
 	// next element. 
 	// run till all filled input 
 	// files reach EOF 
+	int count = 0; 
 	while (count != i) { 
 		// Get the minimum element 
 		// and store it in output file 
@@ -260,7 +259,7 @@ void mergeFiles(char* output_file, int k) {
 		// root of heap. The next element 
 		// belongs to same 
 		// input file as the current min element. 
-		if (fscanf(in[root.i], "%d ", 
+		if (fscanf(run[root.i], "%d ", 
 				&root.element) 
 			!= 1) { 
 			root.element = INT_MAX; 
@@ -273,8 +272,8 @@ void mergeFiles(char* output_file, int k) {
 	} 
 
 	// close input and output files 
-	for (int i = 0; i < k; i++) 
-		fclose(in[i]); 
+	for (int i = 0; i < num_ways; i++) 
+		fclose(run[i]); 
 
 	fclose(out); 
 } 

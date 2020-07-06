@@ -1,0 +1,1179 @@
+Arquivo Gerado simulando Memoria external(Disco Rigido)
+1
+2
+4
+7
+14
+22
+16
+23
+17
+Entrando na funcao External Sort
+Entrando na funcao createInitialRuns
+Lendo Arquivo criado (Disco Rigido)
+Criando Vetor de tamanho 3, representa runs
+Nomeando as runs (Buffers na Memoria) [0]
+Nomeando as runs (Buffers na Memoria) [1]
+Nomeando as runs (Buffers na Memoria) [2]
+
+Entrando no while ate more_input = false
+
+
+more_input_atual = true
+
+i = 0
+run_size = 3
+Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array
+arr = { 1, 786624, 1380995653 }
+
+i = 1
+run_size = 3
+Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array
+arr = { 1, 2, 1380995653 }
+
+i = 2
+run_size = 3
+Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array
+arr = { 1, 2, 4 }
+
+Entrando no MergeSort
+Parametros : arr, left = 0, right = 2
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 1, 2, 4 }
+0 < 2 ?
+Calculando o meio left = 0, right = 2, meio = 0 + 2 / 2 = 1
+Entrando Primeiro Merge
+left = 0
+right = 2
+middle = 1
+Parametros: arr, left, middle
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 1, 2, 4 }
+0 < 1 ?
+Calculando o meio left = 0, right = 1, meio = 0 + 1 / 2 = 0
+Entrando Primeiro Merge
+left = 0
+right = 1
+middle = 0
+Parametros: arr, left, middle
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 1, 2, 4 }
+0 < 0 ?
+NAO ENTROU EM NENHUM MERGE, POIS 0 >= 0
+
+
+.........................................
+
+
+Pilha Anterior!
+Entrando Segundo Merge
+left = 0
+right = 1
+middle = 0
+Parametros: arr, middle + 1, right
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 1, 2, 4 }
+1 < 1 ?
+NAO ENTROU EM NENHUM MERGE, POIS 1 >= 1
+
+
+.........................................
+
+
+Pilha Anterior!
+Entrando no Merge
+left = 0
+right = 1
+middle = 0
+
+
+.........................................
+
+
+Nova Pilha - Funcao Merge
+left: 0
+right: 1
+middle: 0
+N1: 1
+N2: 1
+Tamanho de do vetor L = 1, R = 1
+L[0] = 1
+R[0] = 2
+i: 0 (incide do vetor left)
+j: 0 (indice do vetor right)
+k: 0 (indice do vetor final)
+Entrando no while ate i >= n1 ou j >= n2
+i: 0
+j: 0
+k: 0
+0 < 1  && 0 < 1 ?
+Se L[i] <= R[j]; 1 <= 2 ?
+Entao arr[k] = L[i]; arr[0] = 1
+Passando Valores restantes se houver algum
+j < n2; 0 < 1
+j: 0
+k: 1
+arr[k] = R[j]; arr[1] = 2
+
+arr = { 1, 2, 4 }
+Fim do Merge
+
+Entrando Segundo Merge
+left = 0
+right = 2
+middle = 1
+Parametros: arr, middle + 1, right
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 1, 2, 4 }
+2 < 2 ?
+NAO ENTROU EM NENHUM MERGE, POIS 2 >= 2
+
+
+.........................................
+
+
+Pilha Anterior!
+Entrando no Merge
+left = 0
+right = 2
+middle = 1
+
+
+.........................................
+
+
+Nova Pilha - Funcao Merge
+left: 0
+right: 2
+middle: 1
+N1: 2
+N2: 1
+Tamanho de do vetor L = 2, R = 1
+L[0] = 1
+L[1] = 2
+R[0] = 4
+i: 0 (incide do vetor left)
+j: 0 (indice do vetor right)
+k: 0 (indice do vetor final)
+Entrando no while ate i >= n1 ou j >= n2
+i: 0
+j: 0
+k: 0
+0 < 2  && 0 < 1 ?
+Se L[i] <= R[j]; 1 <= 4 ?
+Entao arr[k] = L[i]; arr[0] = 1
+i: 1
+j: 0
+k: 1
+1 < 2  && 0 < 1 ?
+Se L[i] <= R[j]; 2 <= 4 ?
+Entao arr[k] = L[i]; arr[1] = 2
+Passando Valores restantes se houver algum
+j < n2; 0 < 1
+j: 0
+k: 2
+arr[k] = R[j]; arr[2] = 4
+
+arr = { 1, 2, 4 }
+Fim do Merge
+
+
+
+Saiu do MergeSort
+Vetor atual
+next_output_file: 0
+Escrevendo nas runs (Buffers da memoria)
+j: 0
+i: 3
+Elemento passado: 1
+j: 1
+i: 3
+Elemento passado: 2
+j: 2
+i: 3
+Elemento passado: 4
+
+
+more_input_atual = true
+
+i = 0
+run_size = 3
+Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array
+arr = { 7, 2, 4 }
+
+i = 1
+run_size = 3
+Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array
+arr = { 7, 14, 4 }
+
+i = 2
+run_size = 3
+Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array
+arr = { 7, 14, 22 }
+
+Entrando no MergeSort
+Parametros : arr, left = 0, right = 2
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 7, 14, 22 }
+0 < 2 ?
+Calculando o meio left = 0, right = 2, meio = 0 + 2 / 2 = 1
+Entrando Primeiro Merge
+left = 0
+right = 2
+middle = 1
+Parametros: arr, left, middle
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 7, 14, 22 }
+0 < 1 ?
+Calculando o meio left = 0, right = 1, meio = 0 + 1 / 2 = 0
+Entrando Primeiro Merge
+left = 0
+right = 1
+middle = 0
+Parametros: arr, left, middle
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 7, 14, 22 }
+0 < 0 ?
+NAO ENTROU EM NENHUM MERGE, POIS 0 >= 0
+
+
+.........................................
+
+
+Pilha Anterior!
+Entrando Segundo Merge
+left = 0
+right = 1
+middle = 0
+Parametros: arr, middle + 1, right
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 7, 14, 22 }
+1 < 1 ?
+NAO ENTROU EM NENHUM MERGE, POIS 1 >= 1
+
+
+.........................................
+
+
+Pilha Anterior!
+Entrando no Merge
+left = 0
+right = 1
+middle = 0
+
+
+.........................................
+
+
+Nova Pilha - Funcao Merge
+left: 0
+right: 1
+middle: 0
+N1: 1
+N2: 1
+Tamanho de do vetor L = 1, R = 1
+L[0] = 7
+R[0] = 14
+i: 0 (incide do vetor left)
+j: 0 (indice do vetor right)
+k: 0 (indice do vetor final)
+Entrando no while ate i >= n1 ou j >= n2
+i: 0
+j: 0
+k: 0
+0 < 1  && 0 < 1 ?
+Se L[i] <= R[j]; 7 <= 14 ?
+Entao arr[k] = L[i]; arr[0] = 7
+Passando Valores restantes se houver algum
+j < n2; 0 < 1
+j: 0
+k: 1
+arr[k] = R[j]; arr[1] = 14
+
+arr = { 7, 14, 22 }
+Fim do Merge
+
+Entrando Segundo Merge
+left = 0
+right = 2
+middle = 1
+Parametros: arr, middle + 1, right
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 7, 14, 22 }
+2 < 2 ?
+NAO ENTROU EM NENHUM MERGE, POIS 2 >= 2
+
+
+.........................................
+
+
+Pilha Anterior!
+Entrando no Merge
+left = 0
+right = 2
+middle = 1
+
+
+.........................................
+
+
+Nova Pilha - Funcao Merge
+left: 0
+right: 2
+middle: 1
+N1: 2
+N2: 1
+Tamanho de do vetor L = 2, R = 1
+L[0] = 7
+L[1] = 14
+R[0] = 22
+i: 0 (incide do vetor left)
+j: 0 (indice do vetor right)
+k: 0 (indice do vetor final)
+Entrando no while ate i >= n1 ou j >= n2
+i: 0
+j: 0
+k: 0
+0 < 2  && 0 < 1 ?
+Se L[i] <= R[j]; 7 <= 22 ?
+Entao arr[k] = L[i]; arr[0] = 7
+i: 1
+j: 0
+k: 1
+1 < 2  && 0 < 1 ?
+Se L[i] <= R[j]; 14 <= 22 ?
+Entao arr[k] = L[i]; arr[1] = 14
+Passando Valores restantes se houver algum
+j < n2; 0 < 1
+j: 0
+k: 2
+arr[k] = R[j]; arr[2] = 22
+
+arr = { 7, 14, 22 }
+Fim do Merge
+
+
+
+Saiu do MergeSort
+Vetor atual
+next_output_file: 1
+Escrevendo nas runs (Buffers da memoria)
+j: 0
+i: 3
+Elemento passado: 7
+j: 1
+i: 3
+Elemento passado: 14
+j: 2
+i: 3
+Elemento passado: 22
+
+
+more_input_atual = true
+
+i = 0
+run_size = 3
+Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array
+arr = { 16, 14, 22 }
+
+i = 1
+run_size = 3
+Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array
+arr = { 16, 23, 22 }
+
+i = 2
+run_size = 3
+Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array
+arr = { 16, 23, 17 }
+
+Entrando no MergeSort
+Parametros : arr, left = 0, right = 2
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 16, 23, 17 }
+0 < 2 ?
+Calculando o meio left = 0, right = 2, meio = 0 + 2 / 2 = 1
+Entrando Primeiro Merge
+left = 0
+right = 2
+middle = 1
+Parametros: arr, left, middle
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 16, 23, 17 }
+0 < 1 ?
+Calculando o meio left = 0, right = 1, meio = 0 + 1 / 2 = 0
+Entrando Primeiro Merge
+left = 0
+right = 1
+middle = 0
+Parametros: arr, left, middle
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 16, 23, 17 }
+0 < 0 ?
+NAO ENTROU EM NENHUM MERGE, POIS 0 >= 0
+
+
+.........................................
+
+
+Pilha Anterior!
+Entrando Segundo Merge
+left = 0
+right = 1
+middle = 0
+Parametros: arr, middle + 1, right
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 16, 23, 17 }
+1 < 1 ?
+NAO ENTROU EM NENHUM MERGE, POIS 1 >= 1
+
+
+.........................................
+
+
+Pilha Anterior!
+Entrando no Merge
+left = 0
+right = 1
+middle = 0
+
+
+.........................................
+
+
+Nova Pilha - Funcao Merge
+left: 0
+right: 1
+middle: 0
+N1: 1
+N2: 1
+Tamanho de do vetor L = 1, R = 1
+L[0] = 16
+R[0] = 23
+i: 0 (incide do vetor left)
+j: 0 (indice do vetor right)
+k: 0 (indice do vetor final)
+Entrando no while ate i >= n1 ou j >= n2
+i: 0
+j: 0
+k: 0
+0 < 1  && 0 < 1 ?
+Se L[i] <= R[j]; 16 <= 23 ?
+Entao arr[k] = L[i]; arr[0] = 16
+Passando Valores restantes se houver algum
+j < n2; 0 < 1
+j: 0
+k: 1
+arr[k] = R[j]; arr[1] = 23
+
+arr = { 16, 23, 17 }
+Fim do Merge
+
+Entrando Segundo Merge
+left = 0
+right = 2
+middle = 1
+Parametros: arr, middle + 1, right
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 16, 23, 17 }
+2 < 2 ?
+NAO ENTROU EM NENHUM MERGE, POIS 2 >= 2
+
+
+.........................................
+
+
+Pilha Anterior!
+Entrando no Merge
+left = 0
+right = 2
+middle = 1
+
+
+.........................................
+
+
+Nova Pilha - Funcao Merge
+left: 0
+right: 2
+middle: 1
+N1: 2
+N2: 1
+Tamanho de do vetor L = 2, R = 1
+L[0] = 16
+L[1] = 23
+R[0] = 17
+i: 0 (incide do vetor left)
+j: 0 (indice do vetor right)
+k: 0 (indice do vetor final)
+Entrando no while ate i >= n1 ou j >= n2
+i: 0
+j: 0
+k: 0
+0 < 2  && 0 < 1 ?
+Se L[i] <= R[j]; 16 <= 17 ?
+Entao arr[k] = L[i]; arr[0] = 16
+i: 1
+j: 0
+k: 1
+1 < 2  && 0 < 1 ?
+Se L[i] <= R[j]; 23 <= 17 ?
+Entao arr[k] = R[j]; arr[1] = 17
+Passando Valores restantes se houver algum
+i < n1; 1 < 2
+i: 1
+k: 2
+arr[k] = L[i]; arr[2] = 23
+
+arr = { 16, 17, 23 }
+Fim do Merge
+
+
+
+Saiu do MergeSort
+Vetor atual
+next_output_file: 2
+Escrevendo nas runs (Buffers da memoria)
+j: 0
+i: 3
+Elemento passado: 16
+j: 1
+i: 3
+Elemento passado: 17
+j: 2
+i: 3
+Elemento passado: 23
+
+
+more_input_atual = true
+
+i = 0
+run_size = 3
+Lendo as 3 primeiras posicoes do arquivo in e armazenando-as no array
+Entrou na condicao i = 0, arr[i] = 16, more_input = false, ou seja foi um arquivo ja lido do ultimo conjunto
+
+Entrando no MergeSort
+Parametros : arr, left = 0, right = -1
+
+
+.........................................
+
+
+Nova Pilha
+arr = { 16, 17, 23 }
+0 < -1 ?
+NAO ENTROU EM NENHUM MERGE, POIS 0 >= -1
+
+
+.........................................
+
+
+Pilha Anterior!
+
+
+Saiu do MergeSort
+Vetor atual
+next_output_file: 3
+Escrevendo nas runs (Buffers da memoria)
+
+
+Entrando no MergeFiles!
+
+Abre as runs criadas no mode de leitura
+FILE in[3]
+Abrindo as runs (Buffers na Memoria) [0]
+Abrindo as runs (Buffers na Memoria) [1]
+Abrindo as runs (Buffers na Memoria) [2]
+
+
+run 0 = { 1 2 4 }
+run 1 = { 7 14 22 }
+run 2 = { 16 17 23 }
+
+
+
+Cria o arquivo final no modo de escrita out
+
+Cria um vetor da struct MinHeapNode com o mesmo tamanho de num_ways
+MinHeapNode harr[3] possui um elemento e um indice
+
+
+
+Entrando no for de i ate num_ways
+
+i = 0
+Lendos os valores de in[0] e passando para o elemento de  harr[0]
+harr[0] = 1
+
+Concatenando o mesmo indice i = 0 com o indice de harr[i].i = 0
+
+i = 1
+Lendos os valores de in[1] e passando para o elemento de  harr[1]
+harr[1] = 7
+
+Concatenando o mesmo indice i = 1 com o indice de harr[i].i = 1
+
+i = 2
+Lendos os valores de in[2] e passando para o elemento de  harr[2]
+harr[2] = 16
+
+Concatenando o mesmo indice i = 2 com o indice de harr[i].i = 2
+
+
+
+
+num_ways = 3
+Criando a classe MinHeap passando para o construtor harr e num_ways
+
+Construtor MinHeap
+i = (num_ways - 1) / 2
+
+Enquanto i >= 0
+
+i: 1
+Executa a funcao MinHeapify passando como parametro i
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 3
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 4
+Passa para variavel smallest o valor de i; smallest = 1
+if l (3) < (3) num_ways && harr[l].element (-772440790) < (7) harr[i].element
+
+if r (4) <  (3) num_ways && harr[r].element (844864) < (7) harr[smallest].element
+
+if smallest (1) != (1) i
+
+
+Fim do Enquanto do Construtor
+
+
+i: 0
+Executa a funcao MinHeapify passando como parametro i
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 1
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 2
+Passa para variavel smallest o valor de i; smallest = 0
+if l (1) < (3) num_ways && harr[l].element (7) < (1) harr[i].element
+
+if r (2) <  (3) num_ways && harr[r].element (16) < (1) harr[smallest].element
+
+if smallest (0) != (0) i
+
+
+Fim do Enquanto do Construtor
+
+
+Fim do Contrutor
+
+
+Voltou a funcao MergeFiles
+count = 0
+num_ways = 3
+Enquanto 0 != 3
+
+
+count: 0
+Cria uma estrutura MinHeapNode root e passa para ela o menor valor da classe MinHeap com a funcao getMin()
+retorna a primeira posicao do harr
+root = 1
+
+Escreve no arquivo final (out)  o valor de root
+root = 1
+root.i = 0
+
+Enquanto houver, pega o proximo elemento no run e passa para root.element; do arquivo in[0], onde 0 = root.i
+root.element = 2
+
+Aplica a funcao de replaceMin na classe MinHeap passando root como parametro 2
+
+
+Passa o root para a posicao 0 de harr
+Entra em MinHeapify passando 0 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 1
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 2
+Passa para variavel smallest o valor de i; smallest = 0
+if l (1) < (3) num_ways && harr[l].element (7) < (2) harr[i].element
+
+if r (2) <  (3) num_ways && harr[r].element (16) < (2) harr[smallest].element
+
+if smallest (0) != (0) i
+
+
+Voltou ao MergeFiles
+Fim do Enquanto Merge Files
+
+
+count: 0
+Cria uma estrutura MinHeapNode root e passa para ela o menor valor da classe MinHeap com a funcao getMin()
+retorna a primeira posicao do harr
+root = 2
+
+Escreve no arquivo final (out)  o valor de root
+root = 2
+root.i = 0
+
+Enquanto houver, pega o proximo elemento no run e passa para root.element; do arquivo in[0], onde 0 = root.i
+root.element = 4
+
+Aplica a funcao de replaceMin na classe MinHeap passando root como parametro 4
+
+
+Passa o root para a posicao 0 de harr
+Entra em MinHeapify passando 0 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 1
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 2
+Passa para variavel smallest o valor de i; smallest = 0
+if l (1) < (3) num_ways && harr[l].element (7) < (4) harr[i].element
+
+if r (2) <  (3) num_ways && harr[r].element (16) < (4) harr[smallest].element
+
+if smallest (0) != (0) i
+
+
+Voltou ao MergeFiles
+Fim do Enquanto Merge Files
+
+
+count: 0
+Cria uma estrutura MinHeapNode root e passa para ela o menor valor da classe MinHeap com a funcao getMin()
+retorna a primeira posicao do harr
+root = 4
+
+Escreve no arquivo final (out)  o valor de root
+root = 4
+root.i = 0
+
+Enquanto houver, pega o proximo elemento no run e passa para root.element; do arquivo in[0], onde 0 = root.i
+Entro na condicao, nao existe mais elemento para ser lido, e passa para root.element um valor grande
+count++ = 1
+root.element = 2147483647
+
+Aplica a funcao de replaceMin na classe MinHeap passando root como parametro 2147483647
+
+
+Passa o root para a posicao 0 de harr
+Entra em MinHeapify passando 0 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 1
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 2
+Passa para variavel smallest o valor de i; smallest = 0
+if l (1) < (3) num_ways && harr[l].element (7) < (2147483647) harr[i].element
+Entao smallest = l; smallest = 1
+
+if r (2) <  (3) num_ways && harr[r].element (16) < (7) harr[smallest].element
+
+if smallest (1) != (0) i
+Entao chama funcao swap passando como referencia o harr[i] = 2147483647 e harr[smallest] = 7
+
+funcao swap
+Inverte os valores de harr[i] e harr[smallest]
+harr[i] = 7, harr[smallest] = 2147483647
+Entrando em MinHeapify passando smallest = 1 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 3
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 4
+Passa para variavel smallest o valor de i; smallest = 1
+if l (3) < (3) num_ways && harr[l].element (-772440790) < (2147483647) harr[i].element
+
+if r (4) <  (3) num_ways && harr[r].element (844864) < (2147483647) harr[smallest].element
+
+if smallest (1) != (1) i
+
+
+Voltou ao MergeFiles
+Fim do Enquanto Merge Files
+
+
+count: 1
+Cria uma estrutura MinHeapNode root e passa para ela o menor valor da classe MinHeap com a funcao getMin()
+retorna a primeira posicao do harr
+root = 7
+
+Escreve no arquivo final (out)  o valor de root
+root = 7
+root.i = 1
+
+Enquanto houver, pega o proximo elemento no run e passa para root.element; do arquivo in[1], onde 1 = root.i
+root.element = 14
+
+Aplica a funcao de replaceMin na classe MinHeap passando root como parametro 14
+
+
+Passa o root para a posicao 0 de harr
+Entra em MinHeapify passando 0 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 1
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 2
+Passa para variavel smallest o valor de i; smallest = 0
+if l (1) < (3) num_ways && harr[l].element (2147483647) < (14) harr[i].element
+
+if r (2) <  (3) num_ways && harr[r].element (16) < (14) harr[smallest].element
+
+if smallest (0) != (0) i
+
+
+Voltou ao MergeFiles
+Fim do Enquanto Merge Files
+
+
+count: 1
+Cria uma estrutura MinHeapNode root e passa para ela o menor valor da classe MinHeap com a funcao getMin()
+retorna a primeira posicao do harr
+root = 14
+
+Escreve no arquivo final (out)  o valor de root
+root = 14
+root.i = 1
+
+Enquanto houver, pega o proximo elemento no run e passa para root.element; do arquivo in[1], onde 1 = root.i
+root.element = 22
+
+Aplica a funcao de replaceMin na classe MinHeap passando root como parametro 22
+
+
+Passa o root para a posicao 0 de harr
+Entra em MinHeapify passando 0 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 1
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 2
+Passa para variavel smallest o valor de i; smallest = 0
+if l (1) < (3) num_ways && harr[l].element (2147483647) < (22) harr[i].element
+
+if r (2) <  (3) num_ways && harr[r].element (16) < (22) harr[smallest].element
+Entao smallest = r; smallest = 2
+
+if smallest (2) != (0) i
+Entao chama funcao swap passando como referencia o harr[i] = 22 e harr[smallest] = 16
+
+funcao swap
+Inverte os valores de harr[i] e harr[smallest]
+harr[i] = 16, harr[smallest] = 22
+Entrando em MinHeapify passando smallest = 2 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 5
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 6
+Passa para variavel smallest o valor de i; smallest = 2
+if l (5) < (3) num_ways && harr[l].element (1983729984) < (22) harr[i].element
+
+if r (6) <  (3) num_ways && harr[r].element (0) < (22) harr[smallest].element
+
+if smallest (2) != (2) i
+
+
+Voltou ao MergeFiles
+Fim do Enquanto Merge Files
+
+
+count: 1
+Cria uma estrutura MinHeapNode root e passa para ela o menor valor da classe MinHeap com a funcao getMin()
+retorna a primeira posicao do harr
+root = 16
+
+Escreve no arquivo final (out)  o valor de root
+root = 16
+root.i = 2
+
+Enquanto houver, pega o proximo elemento no run e passa para root.element; do arquivo in[2], onde 2 = root.i
+root.element = 17
+
+Aplica a funcao de replaceMin na classe MinHeap passando root como parametro 17
+
+
+Passa o root para a posicao 0 de harr
+Entra em MinHeapify passando 0 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 1
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 2
+Passa para variavel smallest o valor de i; smallest = 0
+if l (1) < (3) num_ways && harr[l].element (2147483647) < (17) harr[i].element
+
+if r (2) <  (3) num_ways && harr[r].element (22) < (17) harr[smallest].element
+
+if smallest (0) != (0) i
+
+
+Voltou ao MergeFiles
+Fim do Enquanto Merge Files
+
+
+count: 1
+Cria uma estrutura MinHeapNode root e passa para ela o menor valor da classe MinHeap com a funcao getMin()
+retorna a primeira posicao do harr
+root = 17
+
+Escreve no arquivo final (out)  o valor de root
+root = 17
+root.i = 2
+
+Enquanto houver, pega o proximo elemento no run e passa para root.element; do arquivo in[2], onde 2 = root.i
+root.element = 23
+
+Aplica a funcao de replaceMin na classe MinHeap passando root como parametro 23
+
+
+Passa o root para a posicao 0 de harr
+Entra em MinHeapify passando 0 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 1
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 2
+Passa para variavel smallest o valor de i; smallest = 0
+if l (1) < (3) num_ways && harr[l].element (2147483647) < (23) harr[i].element
+
+if r (2) <  (3) num_ways && harr[r].element (22) < (23) harr[smallest].element
+Entao smallest = r; smallest = 2
+
+if smallest (2) != (0) i
+Entao chama funcao swap passando como referencia o harr[i] = 23 e harr[smallest] = 22
+
+funcao swap
+Inverte os valores de harr[i] e harr[smallest]
+harr[i] = 22, harr[smallest] = 23
+Entrando em MinHeapify passando smallest = 2 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 5
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 6
+Passa para variavel smallest o valor de i; smallest = 2
+if l (5) < (3) num_ways && harr[l].element (1983729984) < (23) harr[i].element
+
+if r (6) <  (3) num_ways && harr[r].element (0) < (23) harr[smallest].element
+
+if smallest (2) != (2) i
+
+
+Voltou ao MergeFiles
+Fim do Enquanto Merge Files
+
+
+count: 1
+Cria uma estrutura MinHeapNode root e passa para ela o menor valor da classe MinHeap com a funcao getMin()
+retorna a primeira posicao do harr
+root = 22
+
+Escreve no arquivo final (out)  o valor de root
+root = 22
+root.i = 1
+
+Enquanto houver, pega o proximo elemento no run e passa para root.element; do arquivo in[1], onde 1 = root.i
+Entro na condicao, nao existe mais elemento para ser lido, e passa para root.element um valor grande
+count++ = 2
+root.element = 2147483647
+
+Aplica a funcao de replaceMin na classe MinHeap passando root como parametro 2147483647
+
+
+Passa o root para a posicao 0 de harr
+Entra em MinHeapify passando 0 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 1
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 2
+Passa para variavel smallest o valor de i; smallest = 0
+if l (1) < (3) num_ways && harr[l].element (2147483647) < (2147483647) harr[i].element
+
+if r (2) <  (3) num_ways && harr[r].element (23) < (2147483647) harr[smallest].element
+Entao smallest = r; smallest = 2
+
+if smallest (2) != (0) i
+Entao chama funcao swap passando como referencia o harr[i] = 2147483647 e harr[smallest] = 23
+
+funcao swap
+Inverte os valores de harr[i] e harr[smallest]
+harr[i] = 23, harr[smallest] = 2147483647
+Entrando em MinHeapify passando smallest = 2 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 5
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 6
+Passa para variavel smallest o valor de i; smallest = 2
+if l (5) < (3) num_ways && harr[l].element (1983729984) < (2147483647) harr[i].element
+
+if r (6) <  (3) num_ways && harr[r].element (0) < (2147483647) harr[smallest].element
+
+if smallest (2) != (2) i
+
+
+Voltou ao MergeFiles
+Fim do Enquanto Merge Files
+
+
+count: 2
+Cria uma estrutura MinHeapNode root e passa para ela o menor valor da classe MinHeap com a funcao getMin()
+retorna a primeira posicao do harr
+root = 23
+
+Escreve no arquivo final (out)  o valor de root
+root = 23
+root.i = 2
+
+Enquanto houver, pega o proximo elemento no run e passa para root.element; do arquivo in[2], onde 2 = root.i
+Entro na condicao, nao existe mais elemento para ser lido, e passa para root.element um valor grande
+count++ = 3
+root.element = 2147483647
+
+Aplica a funcao de replaceMin na classe MinHeap passando root como parametro 2147483647
+
+
+Passa o root para a posicao 0 de harr
+Entra em MinHeapify passando 0 como parametro
+
+
+Nova Pilha - Funcao MinHeapify
+
+Chama Funcao Left passando i como parametro que retorna 2 * i + 1
+left = 1
+Chama Funcao Right passando i como parametro retornando 2 * i + 2
+right = 2
+Passa para variavel smallest o valor de i; smallest = 0
+if l (1) < (3) num_ways && harr[l].element (2147483647) < (2147483647) harr[i].element
+
+if r (2) <  (3) num_ways && harr[r].element (2147483647) < (2147483647) harr[smallest].element
+
+if smallest (0) != (0) i
+
+
+Voltou ao MergeFiles
+Fim do Enquanto Merge Files
+Pressione qualquer tecla para continuar. . .
