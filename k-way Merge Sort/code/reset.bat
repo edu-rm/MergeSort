@@ -1,6 +1,5 @@
 @echo off
 
-pause
 del *.exe
 cd file
 del *.txt
@@ -11,5 +10,4 @@ cls
 echo Operacao Terminada.
 echo.
 echo.
-pause
 exit

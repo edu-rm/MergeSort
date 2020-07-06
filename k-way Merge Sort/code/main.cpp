@@ -8,6 +8,7 @@
 #include <stdbool.h>
 #include <limits.h>
 #include <string.h>
+#include <windows.h>
 #include "MinHeap.h" //Classe MinHeap
 
 using namespace std; 
@@ -26,7 +27,9 @@ int main() {
 	int num_ways = 10; 
 
 	// The size of each partition 
-	int run_size = 1000; 
+	int run_size = 1000;
+	CreateDirectory("/file", NULL);
+	CreateDirectory("/num_ways", NULL);
 
 	char input_file[] = "file/input.txt"; 
 	char output_file[] = "file/output.txt"; 
